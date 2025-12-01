@@ -7,4 +7,4 @@ ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 COPY package.json ./
 RUN npm i
 COPY . ./
-CMD ["node", "--import", "tsx", "src/Main.ts"]
+CMD ["npx", "tsx", "src/Main.ts"]
