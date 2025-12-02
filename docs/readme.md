@@ -39,6 +39,13 @@ Or run it via Docker:
 docker build --no-cache -t trmnl . && docker run --env-file .env.local -p 3000:3000 trmnl
 ```
 
+Or use Docker Compose (recommended in development). The `docker-compose.yml` loads `.env.local` via `env_file`, so
+you can run without passing env vars manually:
+
+```shell
+docker compose up --build
+```
+
 After run, you can change files in `src/Template` and `src/Data` to something that you want to display.
 
 Later, to display screen on device you would need to [deploy](#your-server), provide [endpoints](#endpoints)

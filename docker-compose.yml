@@ -1,11 +1,12 @@
 services:
   byos-node-lite:
     build: .
+    # Use local env file for runtime environment values
+    env_file:
+      - .env.local
     ports:
       - "3000:3000"
-    environment:
-      - SECRET_KEY=${SECRET_KEY}
-      - PUBLIC_URL_ORIGIN=${PUBLIC_URL_ORIGIN}
-      - BYOS_DEVICE_MAC=${BYOS_DEVICE_MAC}
-      - BYOS_DEVICE_ACCESS_TOKEN=${BYOS_DEVICE_ACCESS_TOKEN}
+    # Environment variables will be supplied from .env.local via env_file above.
+    # If you want to override for runtime, you may still set variables in
+    # this `environment` block or pass different env file via CLI.
     restart: unless-stopped
